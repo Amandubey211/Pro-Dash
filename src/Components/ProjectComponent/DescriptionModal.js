@@ -33,8 +33,11 @@ function ProjectDescriptionModal({ description, skillsUsed }) {
     <>
       <Tooltip fontSize="xs" label="Description">
         <Button
+          title="Project Information"
           borderRadius="4px"
-          leftIcon={<FcInfo className="hover:cursor-pointer text-sm lg:text-lg" />}
+          leftIcon={
+            <FcInfo className="hover:cursor-pointer text-sm lg:text-lg" />
+          }
           size={{ base: "xs", md: "sm", lg: "sm", sm: "sm" }}
           fontSize="smaller"
           onClick={() => {
@@ -61,8 +64,12 @@ function ProjectDescriptionModal({ description, skillsUsed }) {
             <div className="flex flex-col gap-1">
               <Badge>Skills Used</Badge>
               <div className="flex gap-1 p-3 ">
-                {skillsUsed?.map((item) => {
-                  return <Badge colorScheme="blue">{item}</Badge>;
+                {skillsUsed?.map((item, i) => {
+                  return (
+                    <Badge key={i} colorScheme="blue">
+                      {item}
+                    </Badge>
+                  );
                 })}
               </div>
             </div>

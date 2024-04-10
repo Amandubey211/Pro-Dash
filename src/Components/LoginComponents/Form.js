@@ -46,7 +46,7 @@ const Form = ({
     <div
       className={`${
         !isLoginPage
-          ? "flex py-5 px-3 flex-col  gap-2 items-center justify-center order-2 "
+          ? "flex py-5 px-3 flex-col  gap-2 items-center justify-center lg:order-2"
           : "flex py-5 px-3 flex-col  gap-2 items-center justify-center "
       }`}
     >
@@ -71,7 +71,7 @@ const Form = ({
         })}
       </div>
       <div className="flex gap-1 justify-center items-center">
-        <p className="text-[10px] capitalize">
+        <p className="text-xs capitalize">
           {isLoginPage
             ? "sign in with your email and password"
             : "Create your email and password"}
@@ -104,26 +104,30 @@ const Form = ({
           onPasswordChange={HandlePasswordChange}
           passwordValue={password}
         />
-        <NavLink
-          onClick={() =>
-            toast.success("will be adding soon", { position: "bottom-left" })
-          }
-          className="text-center mt-3 hover:underline hover:text-blue-500 text-[10px]"
-        >
-          Forget your Password?
-        </NavLink>
+
         <div className="flex justify-center">
           <Button
             type="submit"
+            title="subbmit"
             className="uppercase"
             onClick={HandleSubmit}
             isLoading={signUpLoading || signInLoading}
             loadingText={isLoginPage ? "verifying" : "Siginning Up"}
-            colorScheme={currentPalette.colorScheme} // -- change the color
+            colorScheme={currentPalette.colorScheme}
           >
             {isLoginPage ? "Sign In" : " Sign Up"}
           </Button>
         </div>
+
+        <NavLink
+          title="forget password"
+          onClick={() =>
+            toast.success("will be adding soon", { position: "bottom-left" })
+          }
+          className="text-center mt-3 hover:underline hover:text-blue-500 text-xs"
+        >
+          Forget your Password?
+        </NavLink>
       </form>
     </div>
   );

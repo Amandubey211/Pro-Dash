@@ -47,7 +47,7 @@ const useAutomaticLogin = () => {
           throw new Error("Invalid token");
         }
       } catch (error) {
-        console.log("no token"); // navigate("/");
+        return null;
       } finally {
         setLoading(false);
       }

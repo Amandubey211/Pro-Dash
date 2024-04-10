@@ -83,7 +83,7 @@ const ExperienceModal = ({ type, experiencState }) => {
       ) : (
         <Tooltip label="Update">
           <Button
-            size="xs"
+            size="sm"
             type="button"
             onClick={() => {
               onOpen();
@@ -110,8 +110,8 @@ const ExperienceModal = ({ type, experiencState }) => {
         >
           <ModalHeader textTransform="capitalize">
             <div className="flex justify-between pe-9 items-center">
-              {type === "create" ? "Add Education" : "Update Education"}
-              <Button size="xs" onClick={handleModalBg}>
+              {type === "create" ? "Add experience" : "Update Experience"}
+              <Button title="theme mode" size="xs" onClick={handleModalBg}>
                 {Mode === "dark" ? <MdDarkMode /> : <MdOutlineLightMode />}
               </Button>
             </div>
@@ -137,8 +137,8 @@ const ExperienceModal = ({ type, experiencState }) => {
           <ModalFooter>
             {type === "create" ? (
               <Button
+                title="create"
                 size="sm"
-                // isLoading={createLoading}
                 loadingText="Saving"
                 onClick={handleCreate}
                 colorScheme={currentPalette.colorScheme}
@@ -148,7 +148,7 @@ const ExperienceModal = ({ type, experiencState }) => {
             ) : (
               <Button
                 size="sm"
-                // isLoading={updateLoading}
+                title="Update"
                 loadingText="Updating"
                 onClick={handleUpdate}
                 colorScheme={currentPalette.colorScheme}

@@ -40,7 +40,7 @@ const ProfileOverview = () => {
             size="8rem"
             value={ProfileCompletness || 5}
           >
-            <CircularProgressLabel>
+            <CircularProgressLabel fontSize="1.5rem">
               {ProfileCompletness ? ProfileCompletness.toFixed(1) : 5}%
             </CircularProgressLabel>
           </CircularProgress>

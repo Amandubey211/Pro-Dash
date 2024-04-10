@@ -23,6 +23,7 @@ function PasswordInput({ onPasswordChange, passwordValue }) {
     <InputGroup size="md">
       <Input
         name="Password"
+        title="password"
         focusBorderColor={currentPalette.primary} //not dyanamic
         value={passwordValue}
         onChange={HandleChange}
@@ -34,7 +35,13 @@ function PasswordInput({ onPasswordChange, passwordValue }) {
       />
       <InputRightElement width="4.5rem">
         <Tooltip fontSize="sm" label={!show ? "show" : "hide"}>
-          <Button h="1.75rem" size="sm" onClick={handleClick}>
+          <Button
+            title="toogleview"
+            h="1.75rem"
+            size="sm"
+            name="toggleview"
+            onClick={handleClick}
+          >
             {show ? <RiEyeFill /> : <RiEyeCloseFill />}
           </Button>
         </Tooltip>

@@ -1,13 +1,14 @@
-import { lazy, Suspense } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import EmptyList from "../Components/DashBoardComponents/EmptyList.js";
+import { FaSpinner } from "react-icons/fa";
+import Offline from "../Components/ResuableComponent/Offline.js";
 
 const Dashboard = lazy(() =>
   import("../Components/DashBoardComponents/Dashboard.js")
 );
-const Error = lazy(() => import("../Components/Error.js"));
-const Login = lazy(() => import("../Components/Login.js"));
+const Error = lazy(() => import("../Components/ResuableComponent/Error.js"));
+const Login = lazy(() => import("../Components/LoginComponents/Login.js"));
 const ProtectRoute = lazy(() => import("./ProtectedRoutes/ProtectRoute.js"));
 const ProjectPage = lazy(() =>
   import("../Components/ProjectComponent/ProjectPage.js")
@@ -26,6 +27,23 @@ const ExperiencePage = lazy(() =>
 );
 
 function App() {
+  const [isOnline, setIsOnline] = useState(window.navigator.onLine);
+
+  useEffect(() => {
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
+
+    // Add event listeners for online/offline events
+    window.addEventListener("online", handleOnline);
+    window.addEventListener("offline", handleOffline);
+
+    // Cleanup: remove event listeners
+    return () => {
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", handleOffline);
+    };
+  }, []);
+
   const AppRouter = createBrowserRouter([
     {
       path: "/",
@@ -62,17 +80,18 @@ function App() {
       element: <ProtectRoute Component={EducationPage} />,
       errorElement: <Error />,
     },
+    {
+      path: "*",
+      element: <Error />,
+    },
   ]);
 
   return (
     <div>
-      {/* //add loader */}
+      {/* Render OfflineMessage component if offline */}
+      {!isOnline && <Offline />}
       <Suspense
-        fallback={
-          <div className="flex justify-center items-center w-screen h-screen">
-            <b className="text-3xl ">ProDash</b>
-          </div>
-        }
+        fallback={<FaSpinner className="animate-spin" />} // Render Loader component while loading
       >
         <RouterProvider router={AppRouter} />
       </Suspense>

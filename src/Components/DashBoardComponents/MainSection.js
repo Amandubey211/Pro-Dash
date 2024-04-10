@@ -88,6 +88,7 @@ const MainSection = () => {
               <div className="flex gap-1 items-center justify-center">
                 {FilterLables.map((item) => (
                   <button
+                    title={`filter button ${item}`}
                     key={item.id}
                     onClick={() => handleFilter(item)}
                     className={`border hover:border-blue-500 rounded-md  lg:px-3 px-2 p-1 text-xs ${

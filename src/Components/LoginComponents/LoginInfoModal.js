@@ -33,6 +33,8 @@ function LoginInfoModal({ loginPage }) {
     <>
       <Tooltip fontSize="sm" label="Guidlines">
         <Button
+          title="guidelines"
+          name="guidelines"
           size="xs"
           onClick={() => {
             setOverlay(<OverlayOne />);
@@ -102,7 +104,11 @@ function LoginInfoModal({ loginPage }) {
             </>
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme={currentPalette.colorScheme} onClick={onClose}>
+            <Button
+              title="close"
+              colorScheme={currentPalette.colorScheme}
+              onClick={onClose}
+            >
               Close
             </Button>
           </ModalFooter>

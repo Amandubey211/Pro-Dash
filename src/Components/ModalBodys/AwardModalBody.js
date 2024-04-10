@@ -74,12 +74,12 @@ const AwardModalBody = ({
 
       <div className="flex flex-col  items">
         <span className="text-[10px] font-bold">role*</span>
-        <InputGroup size="sm">
+        <InputGroup size={{ base: "md", md: "md", lg: "md", sm: "md" }}>
           <InputLeftAddon fontWeight="500" color="black">
             <FcManager />
           </InputLeftAddon>
           <Input
-            size="sm"
+            size={{ base: "md", md: "md", lg: "md", sm: "md" }}
             value={award.role}
             onChange={(e) =>
               setAward((prev) => ({ ...prev, role: e.target.value }))
@@ -93,12 +93,12 @@ const AwardModalBody = ({
 
       <div className="flex flex-col  items">
         <span className="text-[10px] font-bold">Company/Institution*</span>
-        <InputGroup size="sm">
+        <InputGroup size={{ base: "md", md: "md", lg: "md", sm: "md" }}>
           <InputLeftAddon fontWeight="500" color="black">
             <FcDepartment />
           </InputLeftAddon>
           <Input
-            size="sm"
+            size={{ base: "md", md: "md", lg: "md", sm: "md" }}
             value={award.companyOrInstitute}
             onChange={(e) =>
               setAward((prev) => ({
@@ -114,12 +114,12 @@ const AwardModalBody = ({
       </div>
       <div className="flex flex-col  items">
         <span className="text-[10px] font-bold">Certification*</span>
-        <InputGroup size="sm">
+        <InputGroup size={{ base: "md", md: "md", lg: "md", sm: "md" }}>
           <InputLeftAddon fontWeight="500" color="black">
             <FcDiploma2 />
           </InputLeftAddon>
           <Input
-            size="sm"
+            size={{ base: "md", md: "md", lg: "md", sm: "md" }}
             value={award.certification}
             onChange={(e) =>
               setAward((prev) => ({ ...prev, certification: e.target.value }))
@@ -131,10 +131,10 @@ const AwardModalBody = ({
         </InputGroup>
       </div>
 
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between  gap-2 items-center">
         <div className="flex flex-col  items">
           <span className="text-[10px] font-bold">Receiving Year*</span>
-          <InputGroup size="sm">
+          <InputGroup size={{ base: "md", md: "md", lg: "md", sm: "md" }}>
             <InputLeftAddon color="black">
               <FcCalendar />
             </InputLeftAddon>
@@ -150,7 +150,7 @@ const AwardModalBody = ({
               }
               focusBorderColor={currentPalette.primary}
               placeholder="Select Date and Time"
-              size="sm"
+              size={{ base: "md", md: "md", lg: "md", sm: "md" }}
               type="datetime-local"
             />
           </InputGroup>
@@ -158,12 +158,12 @@ const AwardModalBody = ({
 
         <div className="flex flex-col  items">
           <span className="text-[10px]  font-bold">Grade* </span>
-          <InputGroup size="sm">
+          <InputGroup size={{ base: "md", md: "md", lg: "md", sm: "md" }}>
             <InputLeftAddon color="black">
               <FcBullish />
             </InputLeftAddon>
             <Input
-              size="sm"
+              size={{ base: "md", md: "md", lg: "md", sm: "md" }}
               textTransform="uppercase"
               variant="outline"
               value={award.grade.substring(0, 2)}

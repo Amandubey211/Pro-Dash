@@ -40,25 +40,28 @@ const AwardCard = ({ data }) => {
     >
       <div className="flex px-2 py-1 justify-between items-center">
         <div className="flex gap-1 items-center">
-          <span className="font-semibold text-md lg:text-lg uppercase">{data.role}</span>
+          <span className="font-semibold text-md lg:text-lg uppercase">
+            {data.role}
+          </span>
 
           <FcApproval />
         </div>
 
         <div className="flex gap-1    justify-start items-center">
-          <Tooltip label={copied ? "Copied!" : "Copy"}>
-            <Button size="xs" onClick={handleCopy}>
-              {copied ? <FaCopy /> : <FaRegCopy />}
-            </Button>
-          </Tooltip>
           <Tooltip label="Delete">
             <Button
-              size="xs"
+              title="delete"
+              size="sm"
               isLoading={isDeleting}
               onClick={handleDelete}
               color="red"
             >
               <MdDeleteOutline className="" />
+            </Button>
+          </Tooltip>
+          <Tooltip label={copied ? "Copied!" : "Copy"}>
+            <Button title="copy" size="sm" onClick={handleCopy}>
+              {copied ? <FaCopy /> : <FaRegCopy />}
             </Button>
           </Tooltip>
           <AwardModal type="update" awardState={data} />

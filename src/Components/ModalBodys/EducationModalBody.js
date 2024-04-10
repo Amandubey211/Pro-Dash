@@ -81,6 +81,7 @@ const EducationModalBody = ({
             <FcGraduationCap />
           </InputLeftAddon>
           <Input
+            title="degree"
             value={education.degree}
             onChange={(e) =>
               setEducation((prev) => ({ ...prev, degree: e.target.value }))
@@ -100,6 +101,7 @@ const EducationModalBody = ({
             <FcReading />
           </InputLeftAddon>
           <Input
+            title="field of study"
             value={education.fieldOfStudy}
             onChange={(e) =>
               setEducation((prev) => ({
@@ -122,6 +124,7 @@ const EducationModalBody = ({
               <FcCalendar />
             </InputLeftAddon>
             <Input
+              title="starting Year"
               variant="outline"
               value={education.startYear}
               onChange={(e) =>
@@ -140,6 +143,7 @@ const EducationModalBody = ({
               <FcCalendar />
             </InputLeftAddon>
             <Input
+              title="Ending Year"
               variant="outline"
               value={education.endYear}
               onChange={(e) =>
@@ -159,6 +163,7 @@ const EducationModalBody = ({
             <FcDepartment />
           </InputLeftAddon>
           <Input
+            title="Instution"
             variant="outline"
             value={education.institution}
             onChange={(e) =>
@@ -178,6 +183,7 @@ const EducationModalBody = ({
             <FcGlobe />
           </InputLeftAddon>
           <Input
+            title="institution address"
             variant="outline"
             value={education.institutionLocation}
             onChange={(e) =>
@@ -200,6 +206,7 @@ const EducationModalBody = ({
             <FcBullish />
           </InputLeftAddon>
           <Input
+            title="GPA"
             variant="outline"
             value={education.GPA}
             onChange={(e) =>
@@ -227,6 +234,7 @@ const EducationModalBody = ({
           </span>
         </span>
         <Textarea
+          title="description"
           value={education.description}
           onChange={(e) =>
             setEducation((prev) => ({
@@ -239,7 +247,7 @@ const EducationModalBody = ({
         />
       </div>
       <div className="flex gap-1 items-center justify-center">
-        <FcLike /> <span>thanks for your time...</span>
+        <FcLike /> <span className="capitalize">thanks for your time...</span>
       </div>
     </div>
   );

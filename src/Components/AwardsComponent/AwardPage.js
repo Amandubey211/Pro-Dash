@@ -35,8 +35,8 @@ const AwardPage = () => {
               <Navigation size="4" />
             </div>
             <div className="flex w-full  flex-wrap gap-3 justify-center items-center  p-4 ">
-              {allAwards.map((data) => {
-                return <AwardCard data={data} />;
+              {allAwards.map((data, i) => {
+                return <AwardCard key={i} data={data} />;
               })}
             </div>
           </div>

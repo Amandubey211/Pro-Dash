@@ -90,6 +90,7 @@ const TaskModalBody = ({
             <BsCardHeading />
           </InputLeftAddon>
           <Input
+            title="title"
             value={task.title}
             onChange={(e) =>
               setTask((prevState) => ({ ...prevState, title: e.target.value }))
@@ -105,6 +106,7 @@ const TaskModalBody = ({
       <div className="flex flex-col gap-1">
         <span className="text-xs font-bold">Description*</span>
         <Textarea
+          title="description"
           value={task.description}
           onChange={(e) =>
             setTask((prevState) => ({
@@ -124,6 +126,7 @@ const TaskModalBody = ({
             <IoIosTimer />
           </InputLeftAddon>
           <Input
+            title="due date"
             textTransform="uppercase"
             name="duedate"
             value={task.dueDate}
@@ -150,13 +153,25 @@ const TaskModalBody = ({
       >
         <span className="text-xs font-bold">Priority</span>
         <div className="flex bg- rounded-lg p-3 gap-4 items-center">
-          <Radio colorScheme={currentPalette.colorScheme} value="high">
+          <Radio
+            title="high prioity"
+            colorScheme={currentPalette.colorScheme}
+            value="high"
+          >
             High
           </Radio>
-          <Radio colorScheme={currentPalette.colorScheme} value="medium">
+          <Radio
+            title="medium prioity"
+            colorScheme={currentPalette.colorScheme}
+            value="medium"
+          >
             Medium
           </Radio>
-          <Radio colorScheme={currentPalette.colorScheme} value="low">
+          <Radio
+            title="low prioity"
+            colorScheme={currentPalette.colorScheme}
+            value="low"
+          >
             Low
           </Radio>
         </div>

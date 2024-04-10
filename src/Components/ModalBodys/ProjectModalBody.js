@@ -160,12 +160,13 @@ const ProjectModalBody = ({
 
       <div className="flex flex-col items">
         <span className="text-[10px] font-bold">Title*</span>
-        <InputGroup size={{ base: "sm", md: "md", lg: "md", sm: "xs" }}>
+        <InputGroup size={{ base: "md", md: "md", lg: "md", sm: "md" }}>
           <InputLeftAddon fontWeight="500" color="black">
             <FcApproval />
           </InputLeftAddon>
           <Input
-            size={{ base: "sm", md: "md", lg: "md", sm: "xs" }}
+            title="title"
+            size={{ base: "md", md: "md", lg: "md", sm: "md" }}
             value={project.title}
             onChange={(e) => handleInputChange("title", e.target.value)}
             variant="outline"
@@ -179,12 +180,13 @@ const ProjectModalBody = ({
         <div className="flex flex-col gap-2 justify-around  ">
           <div className="flex flex-col  items">
             <span className="text-[10px] font-bold">Created By*</span>
-            <InputGroup size={{ base: "sm", md: "md", lg: "md", sm: "xs" }}>
+            <InputGroup size={{ base: "md", md: "md", lg: "md", sm: "md" }}>
               <InputLeftAddon fontWeight="500" color="black">
                 <FcEngineering />
               </InputLeftAddon>
               <Input
-                size={{ base: "sm", md: "md", lg: "md", sm: "xs" }}
+                title="created by"
+                size={{ base: "md", md: "md", lg: "md", sm: "md" }}
                 fontSize="smaller"
                 value={project.createdBy}
                 onChange={(e) => handleInputChange("createdBy", e.target.value)}
@@ -197,12 +199,13 @@ const ProjectModalBody = ({
 
           <div className="flex flex-col  items">
             <span className="text-[10px] font-bold">Role*</span>
-            <InputGroup size={{ base: "sm", md: "md", lg: "md", sm: "xs" }}>
+            <InputGroup size={{ base: "md", md: "md", lg: "md", sm: "md" }}>
               <InputLeftAddon color="black">
                 <FcManager />
               </InputLeftAddon>
               <Input
-                size={{ base: "sm", md: "md", lg: "md", sm: "xs" }}
+                title="Role"
+                size={{ base: "md", md: "md", lg: "md", sm: "md" }}
                 fontSize="smaller"
                 value={project.role}
                 onChange={(e) => handleInputChange("role", e.target.value)}
@@ -233,7 +236,7 @@ const ProjectModalBody = ({
           )}
 
           <Input
-            size={{ base: "sm", md: "md", lg: "md", sm: "xs" }}
+            size={{ base: "md", md: "md", lg: "md", sm: "md" }}
             ref={fileInputRef}
             type="file"
             accept="image/*"
@@ -245,11 +248,13 @@ const ProjectModalBody = ({
               <img
                 src={preview}
                 alt="Preview"
+                title="project image"
                 className="rounded-xl"
                 style={{ maxWidth: "100%", maxHeight: "100%" }}
               />
               <Tooltip label="Clear Image">
                 <button
+                  title="clear photo"
                   className="absolute top-2 right-2 bg-gray-200 rounded-full p-1"
                   onClick={handleClearPhoto}
                 >
@@ -269,6 +274,7 @@ const ProjectModalBody = ({
               <FcCalendar />
             </InputLeftAddon>
             <Input
+              title="starting date"
               size={{ base: "xs", md: "md", lg: "md", sm: "xs" }}
               value={project.startDate}
               onChange={(e) => handleInputChange("startDate", e.target.value)}
@@ -293,6 +299,7 @@ const ProjectModalBody = ({
               <FcCalendar />
             </InputLeftAddon>
             <Input
+              title="ending date"
               size={{ base: "xs", md: "md", lg: "md", sm: "xs" }}
               value={project.endDate}
               onChange={(e) => handleInputChange("endDate", e.target.value)}
@@ -316,12 +323,13 @@ const ProjectModalBody = ({
         <span className="text-[10px] font-semibold text-red-300 ">
           Skills Used*(Enter skills separated by commas){" "}
         </span>
-        <InputGroup size={{ base: "sm", md: "md", lg: "md", sm: "xs" }}>
+        <InputGroup size={{ base: "md", md: "md", lg: "md", sm: "md" }}>
           <InputLeftAddon color="black">
             <FaCode />
           </InputLeftAddon>
           <Input
-            size={{ base: "sm", md: "md", lg: "md", sm: "xs" }}
+            title="skills used"
+            size={{ base: "md", md: "md", lg: "md", sm: "md" }}
             value={project.skillsUsed.join(", ")}
             onChange={(e) => handleInputChange("skillsUsed", e.target.value)}
             variant="outline"
@@ -340,13 +348,25 @@ const ProjectModalBody = ({
       >
         <span className="text-xs font-bold">Project Size*</span>
         <div className="flex rounded-lg p-3 gap-4 items-center">
-          <Radio colorScheme={currentPalette.colorScheme} value="large">
+          <Radio
+            title="large"
+            colorScheme={currentPalette.colorScheme}
+            value="large"
+          >
             <div className="text-xs lg:text-md">ENTERPRISE-SCALE</div>
           </Radio>
-          <Radio colorScheme={currentPalette.colorScheme} value="medium">
+          <Radio
+            title="medium"
+            colorScheme={currentPalette.colorScheme}
+            value="medium"
+          >
             <div className="text-xs lg:text-md">MEDIUM-SCALE</div>
           </Radio>
-          <Radio colorScheme={currentPalette.colorScheme} value="small">
+          <Radio
+            title="small"
+            colorScheme={currentPalette.colorScheme}
+            value="small"
+          >
             <div className="text-xs lg:text-md"> SMALL-SCALE</div>
           </Radio>
         </div>
@@ -361,7 +381,7 @@ const ProjectModalBody = ({
             value={project.progressPercentage}
             onChange={(val) => handleInputChange("progressPercentage", val)}
           >
-            <SliderMark colo value={25} {...labelStyles}>
+            <SliderMark value={25} {...labelStyles}>
               25%
             </SliderMark>
             <SliderMark value={50} {...labelStyles}>
@@ -391,12 +411,12 @@ const ProjectModalBody = ({
 
       <div className="flex flex-col items">
         <span className="text-[10px] font-bold">GitHub Link</span>
-        <InputGroup size={{ base: "sm", md: "md", lg: "md", sm: "xs" }}>
+        <InputGroup size={{ base: "md", md: "md", lg: "md", sm: "md" }}>
           <InputLeftAddon color="black">
             <FaGithub />
           </InputLeftAddon>
           <Input
-            size={{ base: "sm", md: "md", lg: "md", sm: "xs" }}
+            size={{ base: "md", md: "md", lg: "md", sm: "md" }}
             value={project.githubLink}
             onChange={(e) => handleInputChange("githubLink", e.target.value)}
             variant="outline"
@@ -408,12 +428,12 @@ const ProjectModalBody = ({
 
       <div className="flex flex-col items">
         <span className="text-[10px] font-bold">Live Demo or Video Link</span>
-        <InputGroup size={{ base: "sm", md: "md", lg: "md", sm: "xs" }}>
+        <InputGroup size={{ base: "md", md: "md", lg: "md", sm: "md" }}>
           <InputLeftAddon color="black">
             <FcLink />
           </InputLeftAddon>
           <Input
-            size={{ base: "sm", md: "md", lg: "md", sm: "xs" }}
+            size={{ base: "md", md: "md", lg: "md", sm: "md" }}
             value={project.liveDemoLink}
             onChange={(e) => handleInputChange("liveDemoLink", e.target.value)}
             variant="outline"

@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import toast from "react-hot-toast";
 
 import {
-  Button,
   Portal,
   Popover,
   PopoverTrigger,
@@ -16,10 +15,9 @@ import {
   PopoverCloseButton,
 } from "@chakra-ui/react";
 
-import { FcEngineering } from "react-icons/fc";
-import ThemeColors from "../../Data/ThemeData/ThemeColors.js";
 import { selectPalette } from "../../Redux/Slices/ThemeSlice.js";
 import { IoColorPalette } from "react-icons/io5";
+import ThemeColors from "../../Data/ThemeData/ThemeColors.js";
 
 const ThemeComponent = ({ mobile }) => {
   const currentTheme = useSelector((store) => store.themes.currentPalette);
@@ -27,7 +25,7 @@ const ThemeComponent = ({ mobile }) => {
   return (
     <Popover placement={mobile ? "auto" : "right-end"}>
       <PopoverTrigger>
-        <button>
+        <button title="theme">
           <IoColorPalette title="theme" className="text-2xl cursor-pointer" />
         </button>
       </PopoverTrigger>
@@ -43,20 +41,21 @@ const ThemeComponent = ({ mobile }) => {
           <PopoverCloseButton />
           <PopoverBody>
             <div className="flex gap-2 justify-center items-center">
-              {ThemeColors.map((data) => {
+              {ThemeColors.map((data, i) => {
                 return (
                   <div
                     key={data.id}
                     className="flex gap-1 justify-center items-center flex-col"
                   >
                     <button
+                      title={data.palette}
                       onClick={() => {
                         dispatch(selectPalette(data.palette));
                         toast.success(`Palette set to "${data.palette}"`, {
                           position: "bottom-left",
                         });
                       }}
-                      className={` h-9 w-8 hover:border-blue-700 border-2 rounded-lg ${
+                      className={` h-9 w-9 hover:border-blue-700 border-2 rounded-lg ${
                         data.palette === currentTheme &&
                         "scale-125  border-black border-2"
                       } `}

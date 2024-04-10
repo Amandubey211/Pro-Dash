@@ -68,13 +68,14 @@ const ProjectPage = () => {
               <ProjectModal type="create" />
               <Navigation size="4" />
             </div>
-            <div className="flex justify-center lg:justify-between md:justify-between p-2 items-center">
+            <div className="flex justify-center lg:justify-between md:justify-between p-3 lg:p-2 items-center">
               <div className="hidden lg:block md:block xl:block">
                 My Projects ({allProjectData?.length || 0})
               </div>
               <div className="flex justify-center gap-1 items-center">
                 {ProjectFilterLables.map((item) => (
                   <button
+                    title={`filter :${item.label}`}
                     key={item.id}
                     onClick={() => handleFilter(item)}
                     className={`border hover:border-blue-500 rounded-md px-2 lg:px-3 p-1 text-xs font-light ${

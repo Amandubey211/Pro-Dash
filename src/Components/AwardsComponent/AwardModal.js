@@ -68,6 +68,7 @@ const AwardModal = ({ type, awardState }) => {
         <Tooltip label="Edit">
           <button
             type="button"
+            title="Add Achivement"
             onClick={() => {
               onOpen();
             }}
@@ -81,8 +82,9 @@ const AwardModal = ({ type, awardState }) => {
       ) : (
         <Tooltip label="Update">
           <Button
-            size="xs"
+            size="sm"
             type="button"
+            title="update Achivement"
             onClick={() => {
               onOpen();
             }}
@@ -109,7 +111,7 @@ const AwardModal = ({ type, awardState }) => {
           <ModalHeader textTransform="capitalize">
             <div className="flex justify-between pe-9 items-center">
               {type === "create" ? "Add Achivement" : "Update Achivement"}
-              <Button size="xs" onClick={handleModalBg}>
+              <Button title="theme mode" size="xs" onClick={handleModalBg}>
                 {Mode === "dark" ? <MdDarkMode /> : <MdOutlineLightMode />}
               </Button>
             </div>
@@ -135,6 +137,7 @@ const AwardModal = ({ type, awardState }) => {
           <ModalFooter>
             {type === "create" ? (
               <Button
+                title="Create"
                 size="sm"
                 isLoading={isCreating}
                 loadingText="Saving"
@@ -146,6 +149,7 @@ const AwardModal = ({ type, awardState }) => {
             ) : (
               <Button
                 size="sm"
+                title="Update"
                 isLoading={isUpdating}
                 loadingText="Updating"
                 onClick={handleUpdate}

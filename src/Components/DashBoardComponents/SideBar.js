@@ -59,7 +59,7 @@ const SideBar = () => {
               <PopoverTrigger>
                 <button>
                   <FcEngineering
-                    title="theme"
+                    title=" theme button"
                     className="text-xl cursor-pointer"
                   />
                 </button>
@@ -85,6 +85,7 @@ const SideBar = () => {
                             className="flex gap-1 justify-center items-center flex-col"
                           >
                             <button
+                              title={`choose : ${data.palette}`}
                               onClick={() => {
                                 dispatch(selectPalette(data.palette));
                                 toast.success(
@@ -92,7 +93,7 @@ const SideBar = () => {
                                   { position: "bottom-left" }
                                 );
                               }}
-                              className={` h-9 w-8 hover:border-blue-700 border-2 rounded-lg ${
+                              className={` h-9 w-9 hover:border-blue-700 border-2 rounded-lg ${
                                 data.palette === currentTheme &&
                                 "scale-125  border-black border-2"
                               } `}
@@ -123,6 +124,7 @@ const SideBar = () => {
           >
             <button
               type="button"
+              title="signOut"
               className="hover:cursor-pointer"
               onClick={signOut}
             >

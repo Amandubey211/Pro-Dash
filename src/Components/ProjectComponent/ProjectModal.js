@@ -65,13 +65,13 @@ const ProjectModal = ({ ProjectState, type }) => {
     <div className="sub-topics gap-2 flex justify-center items-center">
       <Tooltip label={type === "create" ? "Edit" : "Update"}>
         <Button
+          title={type === "create" ? "Edit" : "Update"}
           variant={type === "create" ? "outline" : "solid"}
           color={type === "create" ? "white" : "black"}
-          _hover={type === "create" ? "black" : "white"}
           p={type === "create" && "1rem 1.5rem"}
           fontSize={type === "create" && "1rem"}
           // backgroundColor={currentPalette.accent}
-          size="xs"
+          size="sm"
           onClick={onOpen}
         >
           {type === "create" ? (
@@ -100,7 +100,7 @@ const ProjectModal = ({ ProjectState, type }) => {
           <ModalHeader textTransform="capitalize">
             <div className="flex justify-between pe-9 items-center">
               {type === "create" ? "Add Project" : "Update Project"}
-              <Button size="xs" onClick={handleModalBg}>
+              <Button size="xs" title="theme mode" onClick={handleModalBg}>
                 {isDarkMode ? <MdDarkMode /> : <MdOutlineLightMode />}
               </Button>
             </div>
@@ -128,6 +128,7 @@ const ProjectModal = ({ ProjectState, type }) => {
             {type === "create" ? (
               <Button
                 size="sm"
+                title="create"
                 isLoading={isCreating}
                 loadingText="Creating"
                 colorScheme={currentPalette.colorScheme}
@@ -138,6 +139,7 @@ const ProjectModal = ({ ProjectState, type }) => {
             ) : (
               <Button
                 size="sm"
+                title="update"
                 isLoading={isUploading}
                 loadingText="Updating"
                 colorScheme={currentPalette.colorScheme}

@@ -16,7 +16,7 @@ import { useSelector } from "react-redux";
 import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { FcCancel, FcLandscape } from "react-icons/fc";
 import useManagePersonalPhoto from "../../Hooks/CustomUserInfoHooks/useManagePersonalPhoto";
-import EmptyImage from "../../Assets/ImageNotFound.png";
+import EmptyImage from "../../Assets/ErrorAssets/ImageNotFound.png";
 const ProfilePhotoModal = ({ prevState }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { managePersonalPhoto } = useManagePersonalPhoto();
@@ -77,6 +77,7 @@ const ProfilePhotoModal = ({ prevState }) => {
       <Tooltip label="Edit Photo">
         <button
           size="xs"
+          title="Edit photo"
           type="submit"
           onClick={onOpen}
           className="flex justify-end cursor-pointer transition duration-300 transform hover:scale-110"
@@ -95,7 +96,7 @@ const ProfilePhotoModal = ({ prevState }) => {
           <ModalHeader textTransform="capitalize">
             <div className="flex justify-between pe-9 items-center">
               Change Photo
-              <Button size="xs" onClick={handleModalBg}>
+              <Button title="Theme Mode" size="xs" onClick={handleModalBg}>
                 {Mode === "dark" ? <MdDarkMode /> : <MdOutlineLightMode />}
               </Button>
             </div>
@@ -145,6 +146,7 @@ const ProfilePhotoModal = ({ prevState }) => {
                   </div>
                   <Tooltip label="Clear Image">
                     <button
+                      title="clear photo"
                       className="absolute top-2 right-2 bg-gray-200 rounded-full p-1"
                       onClick={handleClearPhoto}
                     >
@@ -161,6 +163,7 @@ const ProfilePhotoModal = ({ prevState }) => {
 
           <ModalFooter>
             <Button
+              title="save"
               size="sm"
               colorScheme={currentPalette.colorScheme}
               onClick={handleSubmit}

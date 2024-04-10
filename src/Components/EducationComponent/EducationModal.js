@@ -76,6 +76,7 @@ const EducationModal = ({ title, type, eduState }) => {
       {type === "create" ? (
         <Tooltip label="Edit">
           <button
+            title="Add Education Info"
             type="button"
             onClick={() => {
               onOpen();
@@ -90,7 +91,8 @@ const EducationModal = ({ title, type, eduState }) => {
       ) : (
         <Tooltip label="Update">
           <Button
-            size="xs"
+            size="sm"
+            title="Update Education Info"
             type="button"
             onClick={() => {
               onOpen();
@@ -118,7 +120,7 @@ const EducationModal = ({ title, type, eduState }) => {
           <ModalHeader textTransform="capitalize">
             <div className="flex justify-between pe-9 items-center">
               {type === "create" ? "Add Education" : "Update Education"}
-              <Button size="xs" onClick={handleModalBg}>
+              <Button title="theme mode" size="xs" onClick={handleModalBg}>
                 {Mode === "dark" ? <MdDarkMode /> : <MdOutlineLightMode />}
               </Button>
             </div>
@@ -144,6 +146,7 @@ const EducationModal = ({ title, type, eduState }) => {
           <ModalFooter>
             {type === "create" ? (
               <Button
+                title="create"
                 size="sm"
                 isLoading={createLoading}
                 loadingText="Saving"
@@ -155,6 +158,7 @@ const EducationModal = ({ title, type, eduState }) => {
             ) : (
               <Button
                 size="sm"
+                title="Update"
                 isLoading={updateLoading}
                 loadingText="Updating"
                 onClick={handleUpdate}

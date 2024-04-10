@@ -64,7 +64,8 @@ const DashboardModal = ({ id, Title, Logo, Body, Type, listState }) => {
       {Type === "list" ? (
         <Tooltip label="edit">
           <Button
-            size={{ base: "xs", md: "sm", lg: "sm", sm: "sm" }}
+            title="Edit Task"
+            size={{ base: "sm", md: "sm", lg: "sm", sm: "sm" }}
             type="submit"
             onClick={onOpen}
             className="flex justify-end cursor-pointer transition duration-300 transform hover:scale-105"
@@ -74,6 +75,7 @@ const DashboardModal = ({ id, Title, Logo, Body, Type, listState }) => {
         </Tooltip>
       ) : (
         <Button
+          title="update"
           onClick={onOpen}
           color={currentMode === "dark" ? "white" : "black"}
           backgroundColor={currentPalette.primary}
@@ -105,7 +107,7 @@ const DashboardModal = ({ id, Title, Logo, Body, Type, listState }) => {
           <ModalHeader textTransform="capitalize">
             <div className="flex justify-between pe-9 items-center">
               {Title}
-              <Button size="xs" onClick={handleModalBg}>
+              <Button title="theme mode" size="xs" onClick={handleModalBg}>
                 {Mode === "dark" ? <MdDarkMode /> : <MdOutlineLightMode />}
               </Button>
             </div>
@@ -156,6 +158,7 @@ const DashboardModal = ({ id, Title, Logo, Body, Type, listState }) => {
           <ModalFooter>
             {Type === "list" ? (
               <Button
+                title="update"
                 size="sm"
                 isLoading={isTaskCreating}
                 loadingText="Updating"
@@ -166,6 +169,7 @@ const DashboardModal = ({ id, Title, Logo, Body, Type, listState }) => {
               </Button>
             ) : (
               <Button
+                title="create"
                 size="sm"
                 isLoading={isTaskCreating}
                 loadingText="Creating"

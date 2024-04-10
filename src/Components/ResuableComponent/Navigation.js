@@ -10,7 +10,7 @@ const Navigation = ({ size }) => {
   );
 
   return (
-    <div className="flex items-center justify-end flex-wrap lg:gap-3 gap-1 lg:p-3 p-1  ">
+    <div className="flex items-center justify-center lg:gap-3 gap-2 lg:p-3 p-1  ">
       {ProfileLinkLogo?.map((data) => {
         return (
           <div className="flex flex-col items-center" key={data.name}>
@@ -36,8 +36,8 @@ const Navigation = ({ size }) => {
             <span
               className={`capitalize lg:text-sm text-[10px]  ${
                 window.location.pathname === `/${data?.name}`
-                  ? `  font-semibold   scale-105 block text-blue-500  `
-                  : ` capitalize  text-[7px]`
+                  ? `  font-semibold   scale-105 block text-md  `
+                  : ` capitalize hidden `
               }`}
             >
               {data?.name}

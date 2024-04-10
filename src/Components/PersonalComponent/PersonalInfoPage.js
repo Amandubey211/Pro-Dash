@@ -4,12 +4,10 @@ import { useSelector } from "react-redux";
 import SideBar from "../DashBoardComponents/SideBar";
 import MainHeader from "../DashBoardComponents/MainHeader";
 import { Badge, Button } from "@chakra-ui/react";
-import { LoginOptions } from "../../Data/LoginData/LoginOption";
-import toast from "react-hot-toast";
 import ProfileCardLogos from "../../Data/DashboardData/ProfileCardLogo";
 import PersonalInfoModal from "../DashBoardComponents/PersonalInfoModal";
 import Navigation from "../ResuableComponent/Navigation";
-import EmptyImage from "../../Assets/ImageNotFound.png";
+import EmptyImage from "../../Assets/ErrorAssets/ImageNotFound.png";
 import { IoLogoLinkedin } from "react-icons/io5";
 import ProfilePhotoModal from "../DashBoardComponents/ProfilePhotoModal";
 
@@ -31,13 +29,14 @@ const PersonalInfoPage = () => {
         <SideBar />
         <div className="md:col-span-11 p-3">
           <MainHeader />
-          <div className="p-3">
+          <div>
             <Badge className="font-bold my-4 ">Personal Info</Badge>
             <div className="grid gap-3 md:grid-cols-10 ">
               <div className="md:col-span-3 relative">
                 <div className="block  lg:hidden md:hidden xl:hidden">
                   <Navigation />
                 </div>
+                <div className="block lg:hidden xl:hidden"></div>
                 <div className="flex lg:justify-start   justify-end mb-2">
                   <ProfilePhotoModal prevState={PersonalInfo?.photoUrl} />
                 </div>
@@ -51,6 +50,7 @@ const PersonalInfoPage = () => {
 
                   <div className="absolute bottom-0 left-0 mb-2 ml-2">
                     <Button
+                      title="linkedin Link"
                       size="sm"
                       leftIcon={<IoLogoLinkedin className="text-xl" />}
                     >
@@ -67,15 +67,23 @@ const PersonalInfoPage = () => {
               </div>
 
               <div
-                className="md:col-span-7 rounded-xl shadow-2xl me-7 "
+                className="md:col-span-7 rounded-xl shadow-2xl lg:me-7 m-1 "
                 style={{ backgroundColor: currentPalette.primary }}
               >
-                <div className="flex flex-col md:flex-row justify-between items-start ">
-                  <div className="flex flex-col px-6 pt-2 gap-1 justify-center items-start">
-                    <div className="text-2xl capitalize font-bold">
-                      {(PersonalInfo?.firstName || "Full ") + " "}
-                      {PersonalInfo?.lastName || "Name "}
-                    </div>{" "}
+                <div className="flex flex-col w-full md:flex-row justify-s  ">
+                  <div className="flex flex-col  w-full px-6 pt-2 gap-1 justify-center items-start ">
+                    <div className="flex  w-full justify-between pe-2">
+                      <div className="text-2xl capitalize font-bold">
+                        {(PersonalInfo?.firstName || "Full ") + " "}
+                        {PersonalInfo?.lastName || "Name "}
+                      </div>{" "}
+                      <div className="block lg:hidden xl:hidden md:hidden">
+                        <div className="flex justify-end">
+                          <PersonalInfoModal />
+                        </div>
+                      </div>
+                    </div>
+
                     <div className="flex gap-1 items-center font-semibold">
                       <span className="text-md -mt-1">
                         {PersonalInfo?.headline || "Profession"}{" "}
@@ -110,19 +118,18 @@ const PersonalInfoPage = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="hidden lg:block md:block xl:block">
-                    <div className="flex flex-col gap-2">
+                  <div className="hidden  lg:block md:block xl:block">
+                    <div className="flex flex-col  gap-2">
                       <div className="flex justify-end p-1">
                         <PersonalInfoModal />
                       </div>
-                      <div className="flex justify-end">
-                        <Navigation size="4" />
-                      </div>
+
+                      <Navigation size="4" />
                     </div>
                   </div>
                 </div>
 
-                <div className="px-5 pt-2">
+                <div className="lg:px-5 px-2  pt-2">
                   <Badge fontSize="x-small">interests </Badge>
                   <div>
                     <b className="capitalize text-sm">

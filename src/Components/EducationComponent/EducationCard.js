@@ -53,19 +53,20 @@ const EducationCard = ({ data }) => {
           <b className="uppercase text-xl">{data?.degree}</b>
         </div>
         <div className="flex gap-1    justify-start items-center">
-          <Tooltip label={copied ? "Copied!" : "Copy"}>
-            <Button size="xs" onClick={handleCopy}>
-              {copied ? <FaCopy /> : <FaRegCopy />}
-            </Button>
-          </Tooltip>
           <Tooltip label="Delete">
             <Button
-              size="xs"
+              size="sm"
+              title="delete"
               // isLoading={deleteLoading}
               onClick={handleDelete}
               color="red"
             >
               <MdDeleteOutline className="" />
+            </Button>
+          </Tooltip>
+          <Tooltip label={copied ? "Copied!" : "Copy"}>
+            <Button title="copy Education Info" size="sm" onClick={handleCopy}>
+              {copied ? <FaCopy /> : <FaRegCopy />}
             </Button>
           </Tooltip>
           <EducationModal

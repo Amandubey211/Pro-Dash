@@ -10,7 +10,6 @@ import { NavLink, useNavigate } from "react-router-dom";
 const ProfileImageSection = () => {
   const PersonalInfo = useSelector((state) => state.user.userPersonalInfo);
   const user = useSelector((state) => state.user.userDetails);
-  const navigate = useNavigate();
   return (
     <div className="flex flex-col gap-1 p-1 relative">
       <div className="absolute top-0 left-0 z-20">
@@ -18,7 +17,7 @@ const ProfileImageSection = () => {
       </div>
       <div className="flex justify-center p-1 relative">
         <Avatar
-          size={{ base: "xl", md: "xl", lg: "2xl", sm: "xl" }}
+          size={{ base: "2xl", md: "xl", lg: "2xl", sm: "2xl" }}
           name={
             PersonalInfo?.firstName + PersonalInfo?.lastName || user?.userName
           }
@@ -31,7 +30,7 @@ const ProfileImageSection = () => {
             target="_blank"
             title="Linkedin Link"
           >
-            <IoLogoLinkedin className="lg:text-2xl text-lg z-10 text-blue-500 bg-white rounded-full" />
+            <IoLogoLinkedin className="lg:text-3xl text-2xl z-10 text-blue-500 bg-white rounded-full" />
           </a>
         </span>
       </div>

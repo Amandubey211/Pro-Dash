@@ -62,8 +62,9 @@ const TaskList = ({ item, index, deleteLoading }) => {
           className={`flex flex-col gap-1 h-full justify-center p-2 items-center `}
         >
           <CircularProgress
+            title="Progress-percentage"
             value={item.progressPercentage}
-            size={{ base: "3.5rem", md: "4rem", lg: "4rem", sm: "3rem" }}
+            size={{ base: "3.5rem", md: "4rem", lg: "4.2rem", sm: "3rem" }}
             color="green.400"
           >
             <CircularProgressLabel>
@@ -92,11 +93,11 @@ const TaskList = ({ item, index, deleteLoading }) => {
         </div>
       </div>
       <div className=" lg:col-span-7 md:col-span-6  col-span-7  lg:px-3 px-1 ">
-        <div className="flex gap-1  justify-center p-3 flex-col">
+        <div className="flex gap-1  justify-center p-2 flex-col">
           <div className="flex gap-2 justify-between items-center ">
             <div className="flex gap-2 items-center">
-              <b className="lg:text-lg  text-xs">{index + 1}.</b>
-              <div className=" rounded-lg flex gap-1 items-center justify-between lg:text-lg  text-xs capitalize font-semibold ">
+              <b className="lg:text-lg  text-md">{index + 1}.</b>
+              <div className=" rounded-lg flex gap-1 items-center justify-between lg:text-lg  text-sm capitalize font-semibold ">
                 {item.title}
                 {item.progressPercentage === 100 ? (
                   <FcOk />
@@ -106,13 +107,13 @@ const TaskList = ({ item, index, deleteLoading }) => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col gap-1 ">
-            <div className="text-xs lg:p-1 font-light capitalize">
+          <div className="flex flex-col gap-1   justify-start">
+            <div className="text-xs min-h-6 lg:p-1 font-light capitalize">
               {item.description}
             </div>
 
             <div className="block lg:hidden md:hidden xl:hidden">
-              <span className="text-[10px]">{formattedDate}</span>
+              <span className="text-xs">{formattedDate}</span>
             </div>
 
             <div className=" mt-1 hidden lg:block ">
@@ -174,18 +175,10 @@ const TaskList = ({ item, index, deleteLoading }) => {
           </div>
 
           <div className="flex gap-1   flex-col-reverse md:flex-row lg:flex-row    justify-center lg:justify-start md:justify-start xl:justify-start  items-end">
-            <Tooltip label={copied ? "Copied!" : "Copy"}>
-              <Button
-                size={{ base: "xs", md: "sm", lg: "sm", sm: "sm" }}
-                variant="outline"
-                onClick={handleCopy}
-              >
-                {copied ? <FaCopy /> : <FaRegCopy />}
-              </Button>
-            </Tooltip>
             <Tooltip label="Delete">
               <Button
-                size={{ base: "xs", md: "sm", lg: "sm", sm: "sm" }}
+                title="Delete Task"
+                size={{ base: "sm", md: "sm", lg: "sm", sm: "sm" }}
                 isLoading={deleteLoading}
                 onClick={handleDelete}
                 color="red"
@@ -194,6 +187,17 @@ const TaskList = ({ item, index, deleteLoading }) => {
                 <MdDeleteOutline />
               </Button>
             </Tooltip>
+            <Tooltip label={copied ? "Copied!" : "Copy"}>
+              <Button
+                title="Copy Task"
+                size={{ base: "sm", md: "sm", lg: "sm", sm: "sm" }}
+                variant="outline"
+                onClick={handleCopy}
+              >
+                {copied ? <FaCopy /> : <FaRegCopy />}
+              </Button>
+            </Tooltip>
+
             <DashboardModal
               listState={item}
               Title="Update Task"

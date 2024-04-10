@@ -50,9 +50,9 @@ const MainHeader = () => {
   }, []);
 
   return (
-    <div className=" flex justify-between items-center  w-full  lg:px-5 px-1  ">
+    <div className=" flex justify-between items-center  w-full  lg:px-5  pb-3 lg:pb-1  md:pb-2">
       <div className="flex  gap-2   items-center">
-        <div className="lg:text-4xl  text-2xl ">
+        <div className="lg:text-4xl  text-3xl ">
           {timeOfDay === "morning"
             ? HeaderLogos.morning
             : timeOfDay === "afternoon"
@@ -81,14 +81,14 @@ const MainHeader = () => {
       </div>
       <div className="flex justify-end gap-1 md:gap-2 items-center ">
         <div className="block lg:hidden md:hidden xl:hidden">
-          <Tooltip hasArrow label="Theme">
+          <Tooltip label="Theme">
             <ThemeComponent mobile={true} />
           </Tooltip>
         </div>
         <div className="hidden lg:block md:block xl:block">
           <Tooltip hasArrow label="Alerts">
             <Button
-              size={{ base: "xs", md: "sm", lg: "sm", sm: "xs" }} // Adjust size for desktop
+              size={{ base: "xs", md: "sm", lg: "sm", sm: "xs" }}
               title="alerts"
               onClick={() =>
                 toast.success("will be added soon", {
@@ -104,7 +104,8 @@ const MainHeader = () => {
         <div className="block md:hidden lg:hidden xl:hidden">
           <CircularProgress
             color="green.400"
-            size="2rem"
+            size="3rem"
+            title="Stats"
             value={ProfileCompletness}
           >
             <CircularProgressLabel>
@@ -112,6 +113,8 @@ const MainHeader = () => {
                 ref={btnRef}
                 onClick={onOpen}
                 size="xs"
+                alt="Profile Picture"
+                aria-label="stats"
                 name={PersonalInfo?.firsName}
                 src={PersonalInfo?.photoUrl}
               />{" "}
@@ -145,14 +148,16 @@ const MainHeader = () => {
                 >
                   <button
                     type="button"
+                    title="signOut"
                     className="hover:cursor-pointer"
                     onClick={signOut}
                   >
                     <TbLogout type="" onClick={signOut} className="text-lg" />
                   </button>
                 </Tooltip>
-                {/* <Button onClick={onClose}></Button> */}
-                <Button onClick={onClose}>Close</Button>
+                <Button title="close" onClick={onClose}>
+                  Close
+                </Button>
               </DrawerFooter>
             </DrawerContent>
           </Drawer>

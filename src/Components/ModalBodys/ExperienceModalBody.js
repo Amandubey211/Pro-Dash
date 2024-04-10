@@ -99,12 +99,12 @@ const ExperienceModalBody = ({
 
       <div className="flex flex-col  items">
         <span className="text-[10px] font-bold">Company*</span>
-        <InputGroup size={{ base: "sm", md: "md", lg: "md", sm: "xs" }}>
+        <InputGroup size={{ base: "md", md: "md", lg: "md", sm: "md" }}>
           <InputLeftAddon fontWeight="500" color="black">
             <FcDepartment />
           </InputLeftAddon>
           <Input
-            size={{ base: "sm", md: "md", lg: "md", sm: "xs" }}
+            size={{ base: "md", md: "md", lg: "md", sm: "md" }}
             value={experience.company}
             onChange={(e) => handleInputChange("company", e.target.value)}
             variant="outline"
@@ -116,12 +116,13 @@ const ExperienceModalBody = ({
 
       <div className="flex flex-col  items">
         <span className="text-[10px] font-bold">Role*</span>
-        <InputGroup size={{ base: "sm", md: "md", lg: "md", sm: "xs" }}>
+        <InputGroup size={{ base: "md", md: "md", lg: "md", sm: "md" }}>
           <InputLeftAddon fontWeight="500" color="black">
             <FcManager />
           </InputLeftAddon>
           <Input
-            size={{ base: "sm", md: "md", lg: "md", sm: "xs" }}
+            title="role"
+            size={{ base: "md", md: "md", lg: "md", sm: "md" }}
             value={experience.role}
             onChange={(e) => handleInputChange("role", e.target.value)}
             variant="outline"
@@ -138,6 +139,7 @@ const ExperienceModalBody = ({
               <FcCalendar />
             </InputLeftAddon>
             <Input
+              title="starting date"
               size={{ base: "xs", md: "md", lg: "md", sm: "xs" }}
               value={experience.startDate}
               onChange={(e) => handleInputChange("startDate", e.target.value)}
@@ -162,6 +164,7 @@ const ExperienceModalBody = ({
               <FcCalendar />
             </InputLeftAddon>
             <Input
+              title="ending date"
               size={{ base: "xs", md: "md", lg: "md", sm: "xs" }}
               value={experience.endDate}
               onChange={(e) => handleInputChange("endDate", e.target.value)}
@@ -186,12 +189,13 @@ const ExperienceModalBody = ({
           Skills Used*(Enter skills separated by commas)
           {experience.skillsUsed.length}/5
         </span>
-        <InputGroup size={{ base: "sm", md: "md", lg: "md", sm: "xs" }}>
+        <InputGroup size={{ base: "md", md: "md", lg: "md", sm: "md" }}>
           <InputLeftAddon color="black">
             <FcEngineering />
           </InputLeftAddon>
           <Input
-            size={{ base: "sm", md: "md", lg: "md", sm: "xs" }}
+            title="skills used"
+            size={{ base: "md", md: "md", lg: "md", sm: "md" }}
             value={
               experience.skillsUsed.length > 0 ? experience.skillsUsed : ""
             }
@@ -215,6 +219,7 @@ const ExperienceModalBody = ({
           </span>
         </span>
         <Textarea
+          title="description"
           value={experience.description}
           onChange={(e) => handleInputChange("description", e.target.value)}
           focusBorderColor={currentPalette.secondary}

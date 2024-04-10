@@ -75,7 +75,7 @@ const ProfileCard = () => {
               {PersonalInfo?.headline || "Profession"}{" "}
             </span>
           </div>
-          <div className="flex flex-col gap-1 mt-2  text-[11px] ">
+          <div className="flex flex-col gap-1 mt-5  text-[11px] ">
             <div className="flex gap-1  items-center  ">
               {" "}
               {ProfileCardLogos?.location}{" "}
@@ -98,25 +98,34 @@ const ProfileCard = () => {
       <div className="col-span-1   lg:p-1 ">
         <div
           // style={{ backgroundColor: currentPalette.accent }}
-          className={`flex lg:rounded-2xl rounded-lg h-full py-2   flex-col items-center justify-start  gap-2   bg-[${currentPalette.accent}]`}
+          className={`flex lg:rounded-2xl rounded-lg h-full py-2   flex-col items-center justify-between  gap-2 pe-1   bg-[${currentPalette.accent}]`}
         >
-          <PersonalInfoModal />
-          <Tooltip label={copied ? "Copied!" : "Copy Info"}>
-            <Button size="xs" onClick={handleCopy}>
-              {copied ? <FaCopy /> : <FaRegCopy />}
-            </Button>
-          </Tooltip>
+          <div className="flex flex-col justify-start gap-2 ">
+            <PersonalInfoModal />
+            <Tooltip label={copied ? "Copied!" : "Copy Info"}>
+              <Button
+                size="sm"
+                title="Copy Personal information"
+                onClick={handleCopy}
+              >
+                {copied ? <FaCopy /> : <FaRegCopy />}
+              </Button>
+            </Tooltip>
+          </div>
+          <div></div>
 
           <div className="block lg:hidden md:hidden xl:hidden">
             <Popover>
               <PopoverTrigger>
-                <Button size="xs">
+                <Button title="Menu" size="sm">
                   <GrAppsRounded />
                 </Button>
               </PopoverTrigger>
+
               <PopoverContent backgroundColor={currentPalette?.primary}>
                 <PopoverArrow />
                 <PopoverCloseButton />
+                <PopoverHeader>Navigation</PopoverHeader>
                 <PopoverBody>
                   <Navigation />
                 </PopoverBody>

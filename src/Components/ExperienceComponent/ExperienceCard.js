@@ -50,19 +50,19 @@ const ExperienceCard = ({ data }) => {
         <span className="font-semibold text-lg uppercase">{data.company}</span>
 
         <div className="flex gap-1    justify-start items-center">
-          <Tooltip label={copied ? "Copied!" : "Copy"}>
-            <Button size="xs" onClick={handleCopy}>
-              {copied ? <FaCopy /> : <FaRegCopy />}
-            </Button>
-          </Tooltip>
           <Tooltip label="Delete">
             <Button
-              size="xs"
-              // isLoading={deleteLoading}
+              title="delete  Experience"
+              size="sm"
               onClick={handleDelete}
               color="red"
             >
               <MdDeleteOutline className="" />
+            </Button>
+          </Tooltip>
+          <Tooltip label={copied ? "Copied!" : "Copy"}>
+            <Button title="copy Experience Info" size="sm" onClick={handleCopy}>
+              {copied ? <FaCopy /> : <FaRegCopy />}
             </Button>
           </Tooltip>
           <ExperienceModal type="update" experiencState={data} />

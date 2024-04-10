@@ -42,10 +42,11 @@ const PersonalInfoModal = () => {
     setTimeoutId(newTimeoutId);
   };
   return (
-    <div className="sub-topics gap-2 flex justify-center items-center ">
+    <div className="sub-topics gap-2  flex justify-center items-center ">
       <Tooltip label="Edit Info">
         <Button
-          size="xs"
+          size="sm"
+          title="Edit Personal Info"
           type="submit"
           onClick={() => {
             onOpen();
@@ -71,7 +72,7 @@ const PersonalInfoModal = () => {
           <ModalHeader textTransform="capitalize">
             <div className="flex justify-between pe-9 items-center">
               Personal Information
-              <Button size="xs" onClick={handleModalBg}>
+              <Button title="theme mode" size="xs" onClick={handleModalBg}>
                 {Mode === "dark" ? <MdDarkMode /> : <MdOutlineLightMode />}
               </Button>
             </div>
@@ -93,6 +94,7 @@ const PersonalInfoModal = () => {
           </ModalBody>
           <ModalFooter>
             <Button
+              title="create"
               onClick={handleCreate}
               size="sm"
               isLoading={isLoading}
